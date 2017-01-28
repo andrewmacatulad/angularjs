@@ -1,0 +1,39 @@
+<html lang="en-us" ng-app="myApp">
+<head>
+<title>Learn And Understand AngularJs</title>   
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.5.8/angular-messages.min.js"></script>
+<script src="https://code.angularjs.org/1.5.8/angular-resource.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+
+</head>
+    <body>
+
+        <div class="container">
+            <div ng-controller="mainController">
+           
+                <div>
+                    <label>What is your twitter handle</label>
+
+                    <input type="text" ng-model="handle" />
+                <div class="alert" ng-if="handle.length !== characters">
+                    Must be 5 characters    
+                </div>
+                <div class="alert" ng-class= "{ 'alert-warning': handle.length < characters, 'alert-danger': handle.length > characters }" ng-if="handle.length !== characters">
+                    Must be 5 characters    
+                </div>
+                    <hr />
+                    <h1>twitter.com/{{ lowercasehandle() }}</h1>
+                    <h3>Rules</h3>
+                    <ul>
+                    <li ng-repeat="rule in rules ">{{ rule.Rulename }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
